@@ -809,6 +809,9 @@ func main() {
 		user = "root"
 	}
 	password := os.Getenv("ISUCONP_DB_PASSWORD")
+	if password == "" {
+		user = "root"
+	}
 	dbname := os.Getenv("ISUCONP_DB_NAME")
 	if dbname == "" {
 		dbname = "isuconp"
