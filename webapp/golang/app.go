@@ -834,6 +834,10 @@ func main() {
 	}
 	defer db.Close()
 
+	go func() {
+		log.Println(http.ListenAndServe("localhost:6060", nil))
+	}()
+
 	r := chi.NewRouter()
 
 	r.Get("/initialize", getInitialize)
