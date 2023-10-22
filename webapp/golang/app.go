@@ -810,7 +810,7 @@ func main() {
 	}
 	password := os.Getenv("ISUCONP_DB_PASSWORD")
 	if password == "" {
-		user = "root"
+		password = "root"
 	}
 	dbname := os.Getenv("ISUCONP_DB_NAME")
 	if dbname == "" {
@@ -830,7 +830,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to connect to DB: %s.", err.Error())
 	} else {
-		log.Println(dsn)
+		log.Println("db:success")
 	}
 	defer db.Close()
 
