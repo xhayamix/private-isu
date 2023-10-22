@@ -830,7 +830,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to connect to DB: %s.", err.Error())
 	} else {
-		log.Println("db success")
+		log.Println(dsn)
 	}
 	defer db.Close()
 
