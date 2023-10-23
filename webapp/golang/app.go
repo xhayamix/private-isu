@@ -22,6 +22,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/sessions"
 	"github.com/jmoiron/sqlx"
+	"github.com/pkg/profile"
 )
 
 var (
@@ -834,9 +835,7 @@ func main() {
 	}
 	defer db.Close()
 
-	go func() {
-		log.Println(http.ListenAndServe("localhost:6060", nil))
-	}()
+	defer profile.Start().Stop()
 
 	r := chi.NewRouter()
 
