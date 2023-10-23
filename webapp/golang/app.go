@@ -835,7 +835,7 @@ func main() {
 	}
 	defer db.Close()
 
-	defer profile.Start().Stop()
+	defer profile.Start(profile.ProfilePath("/home/centos/profile")).Stop()
 
 	r := chi.NewRouter()
 
