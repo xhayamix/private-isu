@@ -50,9 +50,8 @@ log-reset:
 
 .PHONY: alp-%
 alp-%:
-alp -f $(NGINX_ACCESS_LOG) --aggregates=$(patsubst alp-%,%,$@)
+	alp -f $(NGINX_ACCESS_LOG) --aggregates=$(patsubst alp-%,%,$@)
 
 .PHONY: alp
 alp:
-	 alp -f $(NGINX_ACCESS_LOG)
-	 
+	alp -f $(NGINX_ACCESS_LOG)
