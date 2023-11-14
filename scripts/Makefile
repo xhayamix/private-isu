@@ -50,7 +50,7 @@ log-reset:
 ALP_PATTERN=\/image\/(\d+)\.jpg
 
 .PHONY: alp-pattern
-alp-%:
+alp-pattern:
 	alp -f $(NGINX_ACCESS_LOG) --aggregates='$(ALP_PATTERN)'
 
 .PHONY: alp
