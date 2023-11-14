@@ -47,10 +47,11 @@ log-reset:
 	-sudo mv -f $(NGINX_ACCESS_LOG) ~/logs/$(DATE)/access.txt
 	-sudo mv -f $(NGINX_ERROR_LOG) ~/logs/$(DATE)/error.txt
 
+ALP_PATTERN=\/image\/(\d+)\.jpg
 
-.PHONY: alp-%
+.PHONY: alp-pattern
 alp-%:
-	alp -f $(NGINX_ACCESS_LOG) --aggregates='$(patsubst alp-%,%,$@)'
+	alp -f $(NGINX_ACCESS_LOG) --aggregates='$(ALP_PATTERN)'
 
 .PHONY: alp
 alp:
