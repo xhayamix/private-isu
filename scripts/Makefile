@@ -4,7 +4,7 @@ MYSQL_HOST=localhost
 MYSQL_SLOW_QUERY_LOG=/var/log/mysql/mysql-slow.log
 
 NGINX_CONF=/home/centos/private-isu/webapp/etc/nginx/conf.d/default.conf
-MYSQL_CONF=/home/centos/private-isu/webapp/etc/my.cof
+MYSQL_CONF=/home/centos/private-isu/webapp/etc/my.cnf
 
 slow_query_on:
 	mysql -u$(MYSQL_USER) -p$(MYSQL_PASS) -e "SET GLOBAL slow_query_log = 'ON'; SET GLOBAL slow_query_log_file = '$(MYSQL_SLOW_QUERY_LOG)'; SET GLOBAL long_query_time = 0.001;"
@@ -16,7 +16,7 @@ show_slow_query:
 
 pull:
 	git pull origin master
-	sudo rm -rf /etc/my.conf
+	sudo rm -rf /etc/my.cnf
 	sudo rm -rf /etc/nginx/conf.d/default.conf
 	sudo cp -r $(MYSQL_CONF) /etc/
 	sudo cp -r $(NGINX_CONF) /etc/nginx/conf.d/
