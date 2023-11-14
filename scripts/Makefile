@@ -55,3 +55,4 @@ alp -f $(NGINX_ACCESS_LOG) --aggregates=$(patsubst alp-%,%,$@)
 .PHONY: alp
 alp:
 	 alp -f $(NGINX_ACCESS_LOG)
+	 
