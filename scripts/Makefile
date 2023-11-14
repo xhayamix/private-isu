@@ -47,3 +47,11 @@ log-reset:
 	-sudo mv -f $(NGINX_ACCESS_LOG) ~/logs/$(DATE)/access.txt
 	-sudo mv -f $(NGINX_ERROR_LOG) ~/logs/$(DATE)/error.txt
 
+
+.PHONY: alp-%
+alp-%:
+alp -f $(NGINX_ACCESS_LOG) --aggregates=$(patsubst alp-%,%,$@)
+
+.PHONY: alp
+alp:
+	 alp -f $(NGINX_ACCESS_LOG)
