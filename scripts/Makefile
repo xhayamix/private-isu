@@ -8,7 +8,8 @@ MYSQL_SLOW_QUERY_LOG=/var/log/mysql/mysql-slow.log
 NGINX_ACCESS_LOG=/opt/log/nginx/access.log
 NGINX_ERROR_LOG=/opt/log/nginx/error.log
 
-NGINX_CONF=/home/centos/private-isu/webapp/etc/nginx/conf.d/default.conf
+NGINX_DEFAULT_CONF=/home/centos/private-isu/webapp/etc/nginx/conf.d/default.conf
+NGINX_CONF=/home/centos/private-isu/webapp/etc/nginx/nginx.conf
 MYSQL_CONF=/home/centos/private-isu/webapp/etc/my.cnf
 
 .PHONY: slow_query_on
@@ -29,8 +30,10 @@ pull:
 	git pull origin master
 	sudo rm -rf /etc/my.cnf
 	sudo rm -rf /etc/nginx/conf.d/default.conf
+	sudo rm -rf /etc/nginx/nginx.conf
 	sudo cp -r $(MYSQL_CONF) /etc/
-	sudo cp -r $(NGINX_CONF) /etc/nginx/conf.d/
+	sudo cp -r $(NGINX_DEFAULT_CONF) /etc/nginx/conf.d/
+	sudo cp -r $(NGINX_CONF) /etc/nginx/
 
 .PHONY: restart
 restart:
