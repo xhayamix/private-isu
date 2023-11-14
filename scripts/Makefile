@@ -23,6 +23,6 @@ pull:
 
 .PHONY: restart
 restart:
-	sudo systemctl restart mysql.service
+	sudo systemctl restart mysqld.service
 	sudo systemctl restart nginx.service
 
